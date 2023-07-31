@@ -2,10 +2,12 @@
   min-width: 150px;
   max-width: 400px;
   width: 100%;
-  outline: #4caf50 solid 2px;
+  outline: #4682a9 solid 2px;
   margin: 0 auto;
   padding: 30px;
-  background-color: rgb(208, 205, 248);
+  background-color: #91c8e4;
+  color: #4682a9;
+  border-radius: 25px;
 }
 
 .example-full-width {
