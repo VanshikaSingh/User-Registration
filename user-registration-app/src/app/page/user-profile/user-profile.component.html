@@ -1,0 +1,23 @@
+<h1>Profile Page</h1>
+
+<mat-card class="card" *ngIf="users">
+  <img
+    mat-card-image
+    src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ea914385-70d7-476d-aa3b-37d0c449c464/des1h9g-9d496990-f158-4dbe-ba80-3f93ef4a6560.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2VhOTE0Mzg1LTcwZDctNDc2ZC1hYTNiLTM3ZDBjNDQ5YzQ2NFwvZGVzMWg5Zy05ZDQ5Njk5MC1mMTU4LTRkYmUtYmE4MC0zZjkzZWY0YTY1NjAuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yiEQnEPfUNBwg8HGEWIKAQsCLqiMNuaWsyPiIBKSKTo"
+    alt="king julien"
+  />
+  <mat-card-content>
+    <div class="container">
+      <h4>
+        <b>{{ users.name }}</b>
+      </h4>
+      <p>{{ users.email }}</p>
+      <p>{{ users.bio }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>
+<br />
+<br />
+<a routerLink="" routerLinkActive="active"
+  ><button mat-button color class="button" color="primary">Log out</button></a
+>

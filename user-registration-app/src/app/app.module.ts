@@ -8,8 +8,13 @@ import { UserRegistrationComponent } from './page/user-registration/user-registr
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserProfileComponent } from './page/user-profile/user-profile.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
-  declarations: [UserRegistrationComponent, AppComponent],
+  declarations: [UserRegistrationComponent, AppComponent, UserProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -18,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

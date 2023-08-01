@@ -1,36 +1,59 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Ex- Jay Kim" />
-  </mat-form-field>
+<a routerLink="/user-profile" routerLinkActive="active"
+  ><button mat-raised-button class="button">Profile Page</button></a
+>
+<div *ngIf="!isRegistered; else successMessage">
+  <h1>User Registeration</h1>
+  <form class="example-form" (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input
+        [(ngModel)]="formData.name"
+        name="name"
+        matInput
+        placeholder="Ex- Jay Kim"
+      />
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Enter your email</mat-label>
-    <input
-      matInput
-      placeholder="pat@example.com"
-      [formControl]="email"
-      required
-    />
-    <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        [formControl]="email"
+        [(ngModel)]="formData.email"
+        name="email"
+        required
+      />
+      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Enter your password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" />
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="hide = !hide"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide"
-    >
-      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
-  </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        [(ngModel)]="formData.password"
+        name="password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Bio</mat-label>
-    <input matInput />
-  </mat-form-field>
-</form>
+    <mat-form-field class="example-full-width">
+      <mat-label>Bio</mat-label>
+      <input matInput name="bio" [(ngModel)]="formData.bio" />
+    </mat-form-field>
+    <button mat-button color="primary" type="submit">Submit</button>
+  </form>
+  <p>{{ isRegistered }}</p>
+</div>
+<ng-template #successMessage>
+  <div class="success"><p>Succcess! You can access the Profile Page.</p></div>
+</ng-template>
