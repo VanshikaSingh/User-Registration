@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PostService } from 'src/app/services/post.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,7 +8,8 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class UserProfileComponent {
   users: any;
-  constructor(private service: PostService) {}
+
+  constructor(private service: ProfileService) {}
 
   ngOnInit() {
     this.service.getUser().subscribe((users: any) => {

@@ -3,14 +3,15 @@
 >
 <div *ngIf="!isRegistered; else successMessage">
   <h1>User Registeration</h1>
-  <form class="example-form" (ngSubmit)="onSubmit()" #myForm="ngForm">
+  <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="myForm">
     <mat-form-field class="example-full-width">
       <mat-label>Name</mat-label>
       <input
-        [(ngModel)]="formData.name"
+        formControlName="name"
         name="name"
         matInput
         placeholder="Ex- Jay Kim"
+        required
       />
     </mat-form-field>
 
@@ -19,12 +20,20 @@
       <input
         matInput
         placeholder="pat@example.com"
-        [formControl]="email"
-        [(ngModel)]="formData.email"
+        formControlName="email"
         name="email"
         required
       />
-      <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+      <mat-error
+        *ngIf="myForm.get('email')!.touched && myForm.get('email')!.value == ''"
+        >You must enter a value</mat-error
+      >
+      <mat-error
+        *ngIf="
+          myForm.get('email')!.touched && myForm.get('email')!.status != 'VALID'
+        "
+        >You must enter a valid email</mat-error
+      >
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -32,8 +41,9 @@
       <input
         matInput
         [type]="hide ? 'password' : 'text'"
-        [(ngModel)]="formData.password"
+        formControlName="password"
         name="password"
+        required
       />
       <button
         mat-icon-button
@@ -48,9 +58,16 @@
 
     <mat-form-field class="example-full-width">
       <mat-label>Bio</mat-label>
-      <input matInput name="bio" [(ngModel)]="formData.bio" />
+      <input matInput name="bio" formControlName="bio" required />
     </mat-form-field>
-    <button mat-button color="primary" type="submit">Submit</button>
+    <button
+      mat-button
+      color="primary"
+      type="submit"
+      [disabled]="myForm.status === 'INVALID'"
+    >
+      Submit
+    </button>
   </form>
   <p>{{ isRegistered }}</p>
 </div>
