@@ -12,6 +12,7 @@ import { UserProfileComponent } from './page/user-profile/user-profile.component
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [UserRegistrationComponent, AppComponent, UserProfileComponent],
@@ -19,6 +20,8 @@ import { MatCardModule } from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
+    MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     FormsModule,
