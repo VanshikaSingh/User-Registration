@@ -11,7 +11,6 @@
         name="name"
         matInput
         placeholder="Ex- Jay Kim"
-        required
       />
     </mat-form-field>
 
@@ -22,7 +21,6 @@
         placeholder="pat@example.com"
         formControlName="email"
         name="email"
-        required
       />
       <mat-error
         *ngIf="myForm.get('email')!.touched && myForm.get('email')!.value == ''"
@@ -43,7 +41,6 @@
         [type]="hide ? 'password' : 'text'"
         formControlName="password"
         name="password"
-        required
       />
       <button
         mat-icon-button
